@@ -1,0 +1,53 @@
+use strict;
+use warnings;
+use List::Util qw(sum);
+
+my %explist = (
+
+	 Food => 0.0,
+	 Cloths => 0.0,
+	 Transport => 0.0,
+	 Rent => 0.0,
+	 Miscellaneous => 0.0
+
+     );
+
+my $temp = 0;	 
+
+my $exp_count = shift @ARGV;    # no of expenses
+print "$exp_count\n";
+
+while ($temp < $exp_count){
+
+print 'enter the category:';
+my $category = <STDIN>;   
+
+print 'enter the expense value:';
+my $value = <STDIN>;   # read the expense and its value
+
+chomp ($category, $value);
+
+if(exists $explist{$category}){
+	$explist{$category} += $value;   # add the amount to the existing category
+}
+
+else {
+	$explist{$category} = $value;         #create a new category
+}
+
+$temp += 1;
+
+}
+
+
+for my $k (sort keys (%explist)){      #print all expenses
+	print "$k : $explist{$k}\n";
+}
+
+
+my $total_expense = sum values %explist;  # total expense amount
+
+print "Total Expense : $total_expense\n";
+
+
+
