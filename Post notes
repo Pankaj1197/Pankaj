@@ -4,10 +4,9 @@ use warnings;
 my $chores = {};
 
 my $temp = 0;
+while ($temp <1){
 
-while ($temp <2){
-
-print "Action required: type 1 to add or 0 to remove, 2 to finsh the list\n";        #add or remove a chore
+print "Action required: type 1 to add or 0 to remove, -1 to finsh the list\n";        #add or remove a chore
 my $action = <STDIN>;
 
 
@@ -35,9 +34,9 @@ elsif($action == 0){
 	
 }
 
-elsif($action == 2){
+elsif($action == -1){             # to end the while loop and finish the chore list
 	
-	$temp =5;	
+	$temp =1;	
 }
 
 else {
@@ -49,5 +48,5 @@ for my $k (sort keys (%$chores)){
 	print "$k : $chores->{$k}\n";
 }
 
-
 }
+
