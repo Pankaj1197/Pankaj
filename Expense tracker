@@ -5,7 +5,7 @@ use List::Util qw(sum);
 my %explist = (
 
 	 Food => 0.0,
-	 Cloths => 0.0,
+	 Cloths => 0.0,                       # some initial usual expense types
 	 Transport => 0.0,
 	 Rent => 0.0,
 	 Miscellaneous => 0.0
@@ -32,7 +32,7 @@ if(exists $explist{$category}){
 }
 
 else {
-	$explist{$category} = $value;         #create a new category
+	$explist{$category} = $value;         #create a new expense category
 }
 
 $temp += 1;
