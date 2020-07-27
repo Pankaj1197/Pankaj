@@ -1,0 +1,53 @@
+use strict;
+use warnings;
+
+my $chores = {};
+
+my $temp = 0;
+
+while ($temp <2){
+
+print "Action required: type 1 to add or 0 to remove, 2 to finsh the list\n";        #add or remove a chore
+my $action = <STDIN>;
+
+
+if($action == 1){
+	
+	print 'name of chore to add:'; # name of chore
+    my $chore = <STDIN>;      
+
+
+    print 'details of chore:';    # date, time, etc
+    my $detail = <STDIN>;
+	
+	chomp ($action, $chore, $detail);
+	
+	$chores->{$chore} = $detail;   # add the chore to list
+}
+
+
+elsif($action == 0){
+	
+	print 'name of chore to delete:';  # delete the given chore
+    my $chore = <STDIN>;    
+	chomp ($action, $chore);
+	delete %$chores{$chore};
+	
+}
+
+elsif($action == 2){
+	
+	$temp =5;	
+}
+
+else {
+	print "wrong action input : no change in chore list\n";
+}
+
+
+for my $k (sort keys (%$chores)){
+	print "$k : $chores->{$k}\n";
+}
+
+
+}
